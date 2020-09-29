@@ -12,7 +12,10 @@ export class DataService {
     constructor(private http: HttpClient) { }
 
     getProducts() {
-        return this.http.get<Product[]>(this.url + "/products");
+        return this.http.get<Product[]>(`${this.url}/products`);
     }
 
+    authenticate(data) {
+        return this.http.post(`${this.url}/accounts/authenticate`, data);
+    }
 }
