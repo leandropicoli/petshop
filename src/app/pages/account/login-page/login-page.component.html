@@ -16,7 +16,8 @@
                         placeholder="Password">
                 </div>
                 <div class="uk-margin uk-text-right">
-                    <button class="uk-button uk-button-default" [disabled]="form.invalid">Login</button>
+                    <button class="uk-button uk-button-default" [disabled]="form.invalid"
+                        (click)="submit()">Login</button>
                 </div>
             </div>
         </form>
