@@ -11,6 +11,7 @@
                 <h3 class="uk-card-title">Login</h3>
                 <div class="uk-margin">
                     <input type="text" class="uk-input uk-form-large" formControlName="username" placeholder="CPF"
+                        mask="###.###.###-##"
                         [ngClass]="{'uk-form-danger': (!form.controls.username.valid && !form.controls.username.pristine)}">
                 </div>
                 <div class="uk-margin">
