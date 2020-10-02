@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
+import { Security } from 'src/app/utils/security.util';
 import { CustomValidator } from 'src/app/validators/custom.validator';
 
 @Component({
@@ -13,6 +15,7 @@ export class LoginPageComponent implements OnInit {
   public busy = false;
 
   constructor(
+    private router: Router,
     private service: DataService,
     private fb: FormBuilder) {
     this.form = this.fb.group({
@@ -31,7 +34,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const token = localStorage.getItem('petshop.token');
+    const token = Security.getToken();
     if (token) {
       this.busy = true;
       this
@@ -39,7 +42,7 @@ export class LoginPageComponent implements OnInit {
         .authenticate(this.form.value)
         .subscribe(
           (data: any) => {
-            localStorage.setItem('petshop.token', data.token);
+            this.setUser(data.customer, data.token);
             this.busy = false;
           },
           (err) => {
@@ -57,7 +60,7 @@ export class LoginPageComponent implements OnInit {
       .authenticate(this.form.value)
       .subscribe(
         (data: any) => {
-          localStorage.setItem('petshop.token', data.token);
+          this.setUser(data.customer, data.token);
           this.busy = false;
         },
         (err) => {
@@ -65,5 +68,10 @@ export class LoginPageComponent implements OnInit {
           this.busy = false;
         }
       );
+  }
+
+  setUser(user, token) {
+    Security.set(user, token);
+    this.router.navigate(['/']);
   }
 }
