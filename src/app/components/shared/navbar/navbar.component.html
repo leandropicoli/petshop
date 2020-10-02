@@ -14,19 +14,18 @@
             <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav">
                     <li>
-                        <a [routerLink]="['/cart']">
+                        <a href="/cart">
                             <span class="uk-icon uk-margin-small-right" uk-icon="icon: cart"></span>
                         </a>
                     </li>
                     <li>
-                        <a [routerLink]="['/account']">
-                            <span class="uk-icon uk-margin-small-right" uk-icon="icon: user"></span>
+                        <a href="/account">
+                            <span class=" uk-icon uk-margin-small-right" uk-icon="icon: user"></span>
                             {{ user?.name }}
                         </a>
                     </li>
                     <li>
-                        <!-- <a (click)="logout()"> -->
-                        <a>
+                        <a (click)="logout()">
                             <span class="uk-icon uk-margin-small-right" uk-icon="icon: sign-out"></span>
                         </a>
                     </li>
