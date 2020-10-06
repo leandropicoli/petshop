@@ -26,10 +26,10 @@
         </form>
 
         <p class="uk-text-center" *ngIf="!busy">
-            <a href="/signup"
+            <a [routerLink]="['/signup']"
                 class="uk-button uk-width-1-1 uk-button-large uk-button-primary uk-margin-small-bottom">SignUp</a>
             <br>
-            <a href="/reset-password" class="uk-button uk-button-link">Forgot password?</a>
+            <a [routerLink]="['/reset-password']" class="uk-button uk-button-link">Forgot password?</a>
         </p>
     </div>
 </div>
