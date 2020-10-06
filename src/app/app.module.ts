@@ -20,6 +20,7 @@ import { LoadingComponent } from './components/shared/loading/loading.component'
 import { MaskDirective } from './directives/mask.directive';
 import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
+import { ProfilePageComponent } from './pages/account/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AuthService } from './services/auth.service';
     CartPageComponent,
     FramePageComponent,
     ProductCardComponent,
-    LoadingComponent
+    LoadingComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,
