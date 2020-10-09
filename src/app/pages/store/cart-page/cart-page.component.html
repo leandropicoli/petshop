@@ -37,7 +37,7 @@
 
         <div class="uk-text-right">
             <h3 class="uk-text-right">
-                $ 41.80
+                {{ total()/100 | currency: 'BRL'}}
             </h3>
             <a href="/checkout" class="uk-button uk-button-large uk-button-primary uk-margin-small-bottom">CHECKOUT</a>
         </div>
